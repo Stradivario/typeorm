@@ -1,6 +1,5 @@
 import * as path from "path";
 import * as fs from "fs";
-import {highlight, Theme} from "cli-highlight";
 export {ReadStream} from "fs";
 export {EventEmitter} from "events";
 export {Readable, Writable} from "stream";
@@ -195,7 +194,7 @@ export class PlatformTools {
      * Highlights sql string to be print in the console.
      */
     static highlightSql(sql: string) {
-        const theme: Theme = {
+        const theme = {
             "keyword": chalk.blueBright,
             "literal": chalk.blueBright,
             "string": chalk.white,
@@ -203,14 +202,14 @@ export class PlatformTools {
             "built_in": chalk.magentaBright,
             "comment": chalk.gray,
         };
-        return highlight(sql, { theme: theme, language: "sql" });
+        return theme;
     }
 
     /**
      * Highlights json string to be print in the console.
      */
     static highlightJson(json: string) {
-        return highlight(json, { language: "json" });
+        return json;
     }
 
     /**
